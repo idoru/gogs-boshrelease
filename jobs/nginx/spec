@@ -1,0 +1,86 @@
+---
+name: nginx
+templates:
+    ctl.sh: bin/ctl
+    nginx.conf.erb: etc/nginx.conf
+    ssl.crt.erb: etc/ssl.crt
+    ssl.key.erb: etc/ssl.key
+
+packages:
+- nginx
+
+properties:
+  server_name:
+    default: 10.244.2.2
+    description: 'The server hostname'
+  ssl_key:
+    default: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEA27DjCmtMW8/6N5oHbLniMyYOBDfaxTZoA6o+4pu8mRPAFomF
+      eRf/es5asN2G/TpBI5NmkauEgOzDHWX8RPvdyKAhxY0wzKvN2KLzciv8RU1WK+uk
+      vJUWXJ6l/9coE6uXI0R/Ezb1FsKqYkVcTihZZhnr8YAHUzz1mEz2fsfpWPQL9eeZ
+      PeutsOmoU0VcV1xavV3BwzV5ZdXPWPx2+sO8pE3BctxQCnfXZFm8S7U3ADyi99H/
+      fXhdX4TRNdMtPH36VY0To3Rl2sFNm3FLvvQ44HL41psE9Shum3zt2u+svxVWyaNU
+      XDftx1sSTe1EytxqQrO/nSiIialohUvaIuR8PQIDAQABAoIBACFY7F28g8679yNR
+      gicC4E8bS61gPRkKdSd5RCppsWsbEGFbZqNG/UTK5gFK3x65JQIdcchS3L4lMkjY
+      Hj7qbHPzuqyeDfZDbe+gbIu8GYL7hkUMc+kcSFSu0EvRgQfbWAnGb/Oet/1Id0yL
+      csN6ZHeXH7V81Z/Q9Qa1SAVemxEhUl7bPankp6wjBjzBEqus7efv8jQ6OPOn/eJ2
+      h/DWYhxppNj+YFUTNT6wSWqVyGnu7R2yEf04AfRDtdzuHnmZReUPr9IQXQVrIEUv
+      utn8w/jOKv2gM4w9Qds8nVW7RjrFoCBALwqZhr4ruHO7/LvHsNWzdbvtNBjb9oi7
+      GlDvI4ECgYEA8CvI2My1hBQ9hXIv5tuEW+Il8DrFmEORQT3mBZF1c2D192FC8IT4
+      cPbvP9Yd8J7WjTT/Kpm13pBr4k6kS1mc/d2iXWc9aOG2UiNvnqhKm0BNldWKmsf+
+      EyqeRrjc4M9Ahaa/OKgGQXX8INDqzMHWhQapQNeLUuiXO/VTsa2zbCkCgYEA6iuO
+      8BJzkxmrWsdeJWGAqm1WpNrGNjaFkg6fLp9j06OX/Q6H8WUVupRjljjhNUzuf6pY
+      jXiNgUW9KcP6z/uW/SD/sB3ydPMRoS+++R0N7VwnWQZVqPSiHrJF4dlIUu9sXbKU
+      qRC33bwNJS0Eg/tSXEt5RKEZc6VkibNwneftUfUCgYAaZJVjzcs8woSoP44oDoOT
+      HV0R80N3oiU6SDUY8402qrcdAmE60UIEF/7ewwbzRGFLj0FjSxUDaleQvRes+CIa
+      e9q17PyApB1HFYHUq6XXPc/I4Xij3cp8DLjsCLCtO9lZVqO49C4Lz41vhcXnzn1m
+      jP7Yk1dKOykze5hA9Fe9UQKBgQDGyhF+xfstLkZkOwk2LI6An29FZZ+MmD5N3nHN
+      r2ucV62IGtTW3RxUFvJvrXupttRktmSUPHnL+zr5gLCj7Q2hd2j3xoR0OYCG2DSD
+      3+FZ1bhlf9YqJvqVmntunfkixrO02wwOde3Qo3p5S70gmbKyPTQGSciEfyxZJWZ9
+      9kxmHQKBgQCCAMnFb7uKrn2qT0vLw+QLBTkcHr1PvH/KCY8OkwJW0gIkOz9RBfoJ
+      jOYmNC/hG6RsDCLs2Iw+8YY/ICc/2Pv67LkiAMtXl0kXAqi0uDbBcZJi2ARAd8JB
+      qNw6ZwzacG+1wEhflMz/c2gc/wFSsLPo/7T+zvxca83JsacKgcpf1g==
+      -----END RSA PRIVATE KEY-----
+    description: 'REPLACE WITH YOUR OWN KEY: The SSL key; cant be empty; should be in PEM format.'
+  ssl_chained_cert:
+    default: |
+      -----BEGIN CERTIFICATE-----
+      MIIEwTCCA6mgAwIBAgIJAMp5hINhdCT7MA0GCSqGSIb3DQEBBQUAMIGbMQswCQYD
+      VQQGEwJVUzERMA8GA1UECBMITmV3IFlvcmsxFjAUBgNVBAcTDU5ldyBZb3JrIENp
+      dHkxEjAQBgNVBAoTCUJvc2h5IGdpdDETMBEGA1UECxMKMTAuMjQ0LjIuMjETMBEG
+      A1UEAxMKMTAuMjQ0LjIuMjEjMCEGCSqGSIb3DQEJARYUbWZyZWVkbWFuQHBpdm90
+      YWwuaW8wHhcNMTYwMzMwMjEzNjI1WhcNMTcwMzMwMjEzNjI1WjCBmzELMAkGA1UE
+      BhMCVVMxETAPBgNVBAgTCE5ldyBZb3JrMRYwFAYDVQQHEw1OZXcgWW9yayBDaXR5
+      MRIwEAYDVQQKEwlCb3NoeSBnaXQxEzARBgNVBAsTCjEwLjI0NC4yLjIxEzARBgNV
+      BAMTCjEwLjI0NC4yLjIxIzAhBgkqhkiG9w0BCQEWFG1mcmVlZG1hbkBwaXZvdGFs
+      LmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA27DjCmtMW8/6N5oH
+      bLniMyYOBDfaxTZoA6o+4pu8mRPAFomFeRf/es5asN2G/TpBI5NmkauEgOzDHWX8
+      RPvdyKAhxY0wzKvN2KLzciv8RU1WK+ukvJUWXJ6l/9coE6uXI0R/Ezb1FsKqYkVc
+      TihZZhnr8YAHUzz1mEz2fsfpWPQL9eeZPeutsOmoU0VcV1xavV3BwzV5ZdXPWPx2
+      +sO8pE3BctxQCnfXZFm8S7U3ADyi99H/fXhdX4TRNdMtPH36VY0To3Rl2sFNm3FL
+      vvQ44HL41psE9Shum3zt2u+svxVWyaNUXDftx1sSTe1EytxqQrO/nSiIialohUva
+      IuR8PQIDAQABo4IBBDCCAQAwHQYDVR0OBBYEFJG8caCWDQvyPcJqhDhTEkcDK9St
+      MIHQBgNVHSMEgcgwgcWAFJG8caCWDQvyPcJqhDhTEkcDK9StoYGhpIGeMIGbMQsw
+      CQYDVQQGEwJVUzERMA8GA1UECBMITmV3IFlvcmsxFjAUBgNVBAcTDU5ldyBZb3Jr
+      IENpdHkxEjAQBgNVBAoTCUJvc2h5IGdpdDETMBEGA1UECxMKMTAuMjQ0LjIuMjET
+      MBEGA1UEAxMKMTAuMjQ0LjIuMjEjMCEGCSqGSIb3DQEJARYUbWZyZWVkbWFuQHBp
+      dm90YWwuaW+CCQDKeYSDYXQk+zAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUA
+      A4IBAQC9RBwBfkfvS3lTB6QQaJbl/DUaSTpUCAOvzLix+FYh9SMEfWdwNljCbQ8m
+      E92+s8RXlovuMOPzaL9iLxwYC+Yr4ByqSTIwSNUD3OUGQkr9i+kHSlU3Zbc47+JK
+      qYQYzUq6yv6EliA41h8Ib68JTOiklcF8GTonUkT+C7beA7SQlWKH2USV0KhyVue2
+      IX2PO8asRFS5f8msROmx5exDqnnmrgaHuV3iCG12Js81VhF4zxKzuNJpZAeeW4Vp
+      yAyN+oBWHQpsqPM50mDBbfEGCEl3gNrBtv1n4WEEh43inNPNXDr18vh6wEbyJ/En
+      u0mHkuSJ+kgixKEEO2mfuFc8sRRe
+      -----END CERTIFICATE-----
+    description: |
+      REPLACE THIS SELF SIGNED CERTIFICATE
+      This is the chained SSL certificate for the website; This is in PEM
+      format.  The topmost certificate should be the certificate for the
+      website itself.  (e.g. in the case of sslip.io, the certificate for
+      sslip.io). The second-from-top certificate should be the intermediate
+      certificate (e.g.  "COMODO RSA Domain Validation Secure Server CA"). If
+      there is another intermediate certificate, that should follow (e.g.
+      "COMODO RSA Certification Authority").  There is no reason to include the
+      root certificate, but there is no harm in including it either. It should
+      be the last certificate (bottom-most).
